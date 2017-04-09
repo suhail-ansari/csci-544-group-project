@@ -24,3 +24,4 @@ Run the web server.
 ```bash
 python3 webserver.py
 ```
+To get a generated sentence, go to the url ``http://127.0.0.1:5000`` for Spanish commentary or ``http://127.0.0.1:5000/es`` for English.
