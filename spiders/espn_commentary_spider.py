@@ -1,4 +1,6 @@
+# -*- coding: utf-8 -*-
 import scrapy
+
 
 class ESPNCommentarySpider(scrapy.Spider):
   name = 'espn_commentary'
