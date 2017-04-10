@@ -1,10 +1,12 @@
+# -*- coding: utf-8 -*-
 import scrapy
 
-class ESPNCommentarySpider(scrapy.Spider):
-  name = 'espn_commentary'
+
+class ESPNUSCommentarySpider(scrapy.Spider):
+  name = 'espn_us_commentary'
 
   def __init__(self, start_id=458800, limit=10):
-    self.start_urls = ['http://espndeportes.espn.com/futbol/comentario?juegoId=' + str(start_id)]
+    self.start_urls = ['http://www.espnfc.us/commentary?gameId=' + str(start_id)]
     self.limit = int(limit)
 
   def parse(self, response):
@@ -17,5 +19,5 @@ class ESPNCommentarySpider(scrapy.Spider):
     if self.limit > 0:
       self.limit -= 1
       _, game_id  = response.url.rsplit('=', 1)
-      next_page = 'http://espndeportes.espn.com/futbol/comentario?juegoId=' + str(int(game_id) + 1)
+      next_page = 'http://www.espnfc.us/commentary?gameId=' + str(int(game_id) + 1)
       yield scrapy.Request(next_page, callback=self.parse)
