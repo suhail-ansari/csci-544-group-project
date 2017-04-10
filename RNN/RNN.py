@@ -4,7 +4,7 @@ from keras.layers import Dense
 from keras.layers import Dropout
 from keras.layers import LSTM
 from keras.callbacks import ModelCheckpoint
-from keras.utils import np_utils
+from keras.utils import kutils
 
 import sys
 
@@ -34,7 +34,7 @@ class RNN:
         X = numpy.reshape(dX, (pattern_num, sequence_len, 1))
         X = X / float(self.char_num)
         
-        y = np_utils.to_categorical(dY)
+        y = kutils.to_categorical(dY)
 
         self.dX = dX
         self.dY = dY
