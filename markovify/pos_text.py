@@ -8,7 +8,7 @@ class POSText(markovify.Text):
     super(POSText, self).__init__(*args, **kwargs)
 
   def word_split(self, sentence):
-    words = re.split(self.word_split_pattern, sentence)
+    words = re.split(self.word_split_pattern, sentence.lower())
     words = ['::'.join(tag) for tag in self.tagger.tag(words)]
     return words
 
