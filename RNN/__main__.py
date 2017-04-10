@@ -2,7 +2,7 @@ import argparse
 import csv
 import os
 
-from flask import Flask, request, send_from_directory
+from flask import Flask, render_template
 
 from RNN import RNN
 
@@ -29,12 +29,13 @@ if __name__ == "__main__":
         
 
         if args.server:
-            app = Flask(__name__)
+            app = Flask(__name__, template_folder=".")
 
             @app.route('/')
-            def index():
-                seed, sentence = rnn.make_sentence(50)
-                return '{"seed":%s, "out":%s}'%(seed, sentence)
+            @app.route('/<int:length>')
+            def index(length=50):
+                seed, sentence = rnn.make_sentence(length)
+                return render_template('index.html', seed=seed, sentence=sentence)
 
             app.run(port=5000, host='0.0.0.0')
             
