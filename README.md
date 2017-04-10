@@ -8,7 +8,7 @@ Sentence generation using markov chain.
 ```bash
 cd markovify
 ```
-Generate a POS tagger for each language (es/en).
+Generate a POS tagger for each language (es/en). Requires `nltk` with `brown` and `cess_esp` corpus.
 ```bash
 # usage: python3 train_tagger.py [lang=es]
 python3 train_tagger.py es
