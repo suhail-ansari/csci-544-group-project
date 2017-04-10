@@ -66,7 +66,7 @@ class RNN:
     def make_sentence(self, sequence_len=30):
         start = numpy.random.randint(0, len(self.dX)-1)
         start_pattern = self.dX[start]
-        print start_patternm '#1'
+        print start_pattern, '#1'
         seed_sequence = ''.join([self.intmap[value] for value in start_pattern])
         print seed_sequence, '#2'
         res = ""
