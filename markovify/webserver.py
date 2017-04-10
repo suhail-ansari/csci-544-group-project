@@ -19,4 +19,4 @@ def index(lang='es', tries=10):
   print('markov lang=%s tries=%d' % (lang, tries))
   return models[lang].make_sentence(tries=tries) or ''
 
-app.run()
+app.run(port=5001, host='0.0.0.0')

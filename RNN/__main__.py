@@ -37,9 +37,5 @@ if __name__ == "__main__":
                 return '{"seed":%s, "out":%s}'%(seed, sentence)
 
             app.run(port=5000, host='0.0.0.0')
-
-        #seed, sentence = rnn.make_sentence()
-        #print "Seed:{}\nOut:{}".format(seed, sentence)
-
             
         
