@@ -40,6 +40,8 @@ class RNN:
         self.dY = dY
         self.X = X
         self.y = y
+
+        print self.X[0], self.y[0]
     
     def make_model(self):
         self.model = Sequential()
@@ -64,7 +66,9 @@ class RNN:
     def make_sentence(self, sequence_len=30):
         start = numpy.random.randint(0, len(self.dX)-1)
         start_pattern = self.dX[start]
-        seed_sequence = ''.join([self.intmap[value] for value in start_pattern]) 
+        print start_patternm '#1'
+        seed_sequence = ''.join([self.intmap[value] for value in start_pattern])
+        print seed_sequence, '#2'
         res = ""
         for i in range(sequence_len):
             x = numpy.reshape(start_pattern, (1, len(start_pattern), 1))
@@ -75,6 +79,8 @@ class RNN:
             res += result
             start_pattern.append(index)
             start_pattern = start_pattern[1:len(start_pattern)]
+            print start_pattern, '#3'
+        
         return seed_sequence, res
         
         
