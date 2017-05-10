@@ -25,3 +25,10 @@ Run the web server.
 python3 webserver.py
 ```
 To get a generated sentence, go to the url ``http://127.0.0.1:5000`` for Spanish commentary or ``http://127.0.0.1:5000/es`` for English.
+
+## RNN
+
+To run the RNN based sentence generator:
+```python RNN -i RNN/as_com.csv -s
+```
+This will start training the model if there does not exists a file named ``rnn_model.h5`` in RNN folder and start a web server after the best model is found. You can generate a sentence by going to ``http://127.0.0.1:5000/`` or `` http://127.0.0.1:5000/(length)``.
